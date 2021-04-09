@@ -13,6 +13,9 @@ Let’s first (as always) export the IP to a global variable, for easier referen
 export IP={Machine IP}
 ```
 
+![test](flag3.png)
+![test](flag4.png)
+
 ## Enumeration
 
 Let’s get started with an nmap scan:

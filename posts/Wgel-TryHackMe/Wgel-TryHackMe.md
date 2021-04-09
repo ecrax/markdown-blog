@@ -13,6 +13,12 @@ The first thing I always do is to export the IP to a global variable. So from no
 export IP={Machine IP}
 ```
 
+![test](burp.png)
+![test](burp.png)
+![test](burp.png)
+
+![test](flag2.2.png)
+
 ## Enumeration
 
 Let us start our enumeration as usual and do an nmap scan:

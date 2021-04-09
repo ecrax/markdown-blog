@@ -21,6 +21,9 @@ export const PostPage = ({ match }: RouteComponentProps<TParams>) => {
           style={vscDarkPlus}
           language={language}
           children={value}
+          customStyle={{
+            borderRadius: "5px",
+          }}
         />
       );
     },
@@ -33,6 +36,13 @@ export const PostPage = ({ match }: RouteComponentProps<TParams>) => {
         children={postData?.content as string}
         escapeHtml={false}
         renderers={renderers}
+        transformImageUri={(uri: string) => {
+          console.log(uri);
+
+          return uri.startsWith("http")
+            ? uri
+            : `http://localhost:3000/images/${uri}`;
+        }}
       />
     </div>
   );
