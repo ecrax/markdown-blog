@@ -2,7 +2,8 @@
 title: Wgel - TryHackMe
 date: 2020/08/07
 categories:
-  - [pentesting, writeups]
+  - pentesting
+  - writeups
 ---
 
 Hey there! Today I am going to walk you through the Wgel machine on [TryHackMe](https://tryhackme.com/room/wgelctf)

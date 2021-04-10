@@ -15,6 +15,7 @@ stream.on("data", (data) => {
     data.data["content"] = data.markdown;
     data.data["id"] = Math.round(timestamp);
     data.data["slug"] = slugify(data.data.title);
+    data.data["date"] = data.data["date"].replace(/\//g, "-");
     postList.push(data.data);
   }
 });

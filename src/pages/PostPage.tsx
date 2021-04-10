@@ -14,6 +14,7 @@ export const PostPage = ({ match }: RouteComponentProps<TParams>) => {
     return post.slug.toLowerCase() === requestedPost.slug.toLowerCase();
   });
 
+  // TODO: Add copy to clipboard (https://www.youtube.com/watch?v=iAAOvv_4ONI&ab_channel=%C3%87elikK%C3%B6seo%C4%9Flu)
   const renderers = {
     code: ({ language, value }: { language: any; value: any }) => {
       return (
@@ -30,15 +31,29 @@ export const PostPage = ({ match }: RouteComponentProps<TParams>) => {
   };
 
   return (
-    <div>
+    <div className="post">
       <h1>{postData?.title}</h1>
+      <p>
+        {postData?.categories.map((category: any, index: number) => {
+          return (
+            <>
+              <span>
+                {category}
+                {postData?.categories.length !== index + 1 ? (
+                  <span>, </span>
+                ) : null}
+              </span>
+            </>
+          );
+        })}
+      </p>
+      <p>{postData?.date}</p>
+
       <ReactMarkdown
         children={postData?.content as string}
         escapeHtml={false}
         renderers={renderers}
         transformImageUri={(uri: string) => {
-          console.log(uri);
-
           return uri.startsWith("http")
             ? uri
             : `http://localhost:3000/images/${uri}`;

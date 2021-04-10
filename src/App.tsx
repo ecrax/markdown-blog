@@ -1,18 +1,23 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 import { AllBlogPosts } from "./components/AllBlogPosts";
+import { Footer } from "./components/Footer";
 import { PostPage } from "./pages/PostPage";
+import "./index.css";
 
 interface AppProps {}
 
 const App: React.FC<AppProps> = () => {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={AllBlogPosts} />
-        <Route path="/blog/:slug" component={PostPage} />
-      </Switch>
-    </div>
+    <>
+      <div className="content">
+        <Switch>
+          <Route exact path="/" component={AllBlogPosts} />
+          <Route path="/blog/:slug" component={PostPage} />
+        </Switch>
+      </div>
+      <Footer></Footer>
+    </>
   );
 };
 

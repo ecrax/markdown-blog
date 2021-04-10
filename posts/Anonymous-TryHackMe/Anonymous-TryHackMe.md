@@ -2,7 +2,8 @@
 title: Anonymous - TryHackMe
 date: 2020/08/13
 categories:
-  - [pentesting, writeups]
+  - pentesting
+  - writeups
 ---
 
 Hello there! Today I am going to walk you through the Anonymous machine on [TryHackMe](https://tryhackme.com/room/anonymous).

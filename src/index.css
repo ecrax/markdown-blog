@@ -1,0 +1,72 @@
+@import url("http://fonts.cdnfonts.com/css/bitstream-vera-sans-mono");
+
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  text-rendering: geometricPrecision;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Bitstream Vera Sans Mono", "Menlo", monospace;
+}
+
+.max-width {
+  max-width: 48rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content {
+  overflow-wrap: break-word;
+  max-width: 48rem;
+}
+
+.post-list {
+  padding: 0;
+}
+
+.post-item {
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+}
+
+.post-item time {
+  margin-right: 16px;
+}
+
+.post {
+  margin-bottom: 4rem;
+}
+
+#footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+#footer .footer-left {
+  align-self: flex-start;
+  vertical-align: middle;
+}
