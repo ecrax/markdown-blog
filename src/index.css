@@ -1,5 +1,19 @@
 @import url("http://fonts.cdnfonts.com/css/bitstream-vera-sans-mono");
 
+/*
+ Pink: rgb(197, 78, 201);
+ Green: rgb(78, 201, 176);
+ */
+
+* {
+  --pink: rgb(197, 78, 201);
+  --purple: #6f2bbc;
+  --green: #2bbc8a;
+
+  --accent: var(--green);
+  --text: #c9cacc;
+}
+
 #root {
   min-height: 100vh;
   display: grid;
@@ -21,7 +35,17 @@ body {
   text-rendering: geometricPrecision;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+
   font-family: "Bitstream Vera Sans Mono", "Menlo", monospace;
+  font-size: 14px;
+  line-height: 1.725;
+  letter-spacing: 0.01em;
+
+  background-color: #1d1f21;
+  color: #c9cacc;
+
+  padding-right: 2rem;
+  padding-left: 2rem;
 }
 
 .max-width {
@@ -33,9 +57,74 @@ body {
   margin-right: auto;
 }
 
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+header {
+  margin: 0 auto 2rem;
+  width: 100%;
+}
+
+header h1 {
+  line-height: 2rem;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+header a {
+  text-decoration: none;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  line-height: 15px;
+}
+
+nav ul a {
+  margin-right: 15px;
+  color: var(--accent);
+  font-size: 0.8rem;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+nav ul a:hover {
+  border-bottom: 1px solid;
+}
+
+nav ul li {
+  margin-right: 15px;
+  border-right: 1px dotted;
+  border-color: var(--accent);
+}
+nav ul li:last-child {
+  margin-right: 0;
+  border: none;
+}
+
 .content {
   overflow-wrap: break-word;
   max-width: 48rem;
+
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.content h2 a {
+  text-decoration: none;
+  color: var(--accent);
+}
+.content h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 }
 
 .post-list {
@@ -46,14 +135,61 @@ body {
   list-style: none;
   display: flex;
   align-items: baseline;
+  margin-bottom: 5px;
 }
 
 .post-item time {
   margin-right: 16px;
+  min-width: 100px;
 }
 
 .post {
   margin-bottom: 4rem;
+}
+
+a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--text);
+}
+
+a:hover {
+  text-decoration-color: var(--accent);
+}
+
+.post h2 {
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+}
+
+.post h1::before {
+  /*content: "class ";*/
+  color: #666;
+}
+
+.post h2::after {
+  content: ".toSubtitle();";
+  color: #666;
+}
+
+img {
+  max-width: 48rem;
+}
+
+.post-code-highlight {
+  color: var(--accent);
+}
+
+.ind-lvl-1 {
+  margin-left: 16px;
+}
+
+.ind-lvl-2 {
+  margin-left: 32px;
+}
+
+.dim-text {
+  color: #666;
 }
 
 #footer {
@@ -64,9 +200,21 @@ body {
   justify-content: space-between;
   align-items: center;
   align-content: center;
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 11px;
 }
 
 #footer .footer-left {
   align-self: flex-start;
   vertical-align: middle;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #505153;
+  border-radius: 2px;
 }

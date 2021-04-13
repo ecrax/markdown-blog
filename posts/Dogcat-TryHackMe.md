@@ -2,7 +2,8 @@
 title: Dogcat - TryHackMe
 date: 2020/07/11
 categories:
-  - [pentesting, writeups]
+  - pentesting
+  - writeups
 ---
 
 Hey there! Today I am going to walk you through the Dogcat machine on [TryHackMe](https://tryhackme.com/room/dogcat)

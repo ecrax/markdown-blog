@@ -2,7 +2,8 @@
 title: Flutter Package - Duration Picker
 date: 2020/10/19
 categories:
-  - [flutter, packages]
+  - flutter
+  - packages
 ---
 
 ## What does it do?

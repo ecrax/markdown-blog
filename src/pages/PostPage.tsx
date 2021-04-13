@@ -4,10 +4,15 @@ import { RouteComponentProps } from "react-router";
 import Posts from "../posts.json";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Link } from "react-router-dom";
+import Moment from "react-moment";
+import { Header } from "../components/Header";
 
 type TParams = { slug: string };
 
-export const PostPage = ({ match }: RouteComponentProps<TParams>) => {
+export const PostPage: React.FC<RouteComponentProps<TParams>> = ({
+  match,
+}: RouteComponentProps<TParams>) => {
   const requestedPost = match.params;
 
   const postData = Posts.find((post) => {
@@ -31,34 +36,74 @@ export const PostPage = ({ match }: RouteComponentProps<TParams>) => {
   };
 
   return (
-    <div className="post">
-      <h1>{postData?.title}</h1>
-      <p>
-        {postData?.categories.map((category: any, index: number) => {
-          return (
-            <>
-              <span>
-                {category}
-                {postData?.categories.length !== index + 1 ? (
-                  <span>, </span>
-                ) : null}
-              </span>
-            </>
-          );
-        })}
-      </p>
-      <p>{postData?.date}</p>
+    <>
+      <Header />
+      <div className="post">
+        <h1>
+          <span className="noselect dim-text">"</span>
+          {postData?.title}
+          <span className="noselect dim-text">"</span>
+        </h1>
 
-      <ReactMarkdown
-        children={postData?.content as string}
-        escapeHtml={false}
-        renderers={renderers}
-        transformImageUri={(uri: string) => {
-          return uri.startsWith("http")
-            ? uri
-            : `http://localhost:3000/images/${uri}`;
-        }}
-      />
-    </div>
+        <div className="category-block">
+          <span className="post-code-highlight noselect"> {"{"}</span>
+          <br className="noselect" />
+
+          <span className="ind-lvl-1 noselect" style={{ color: "#404449" }}>
+            date:
+            <span className="post-code-highlight noselect">{" ["}</span>
+          </span>
+          <br className="noselect" />
+          <span className="ind-lvl-2">
+            <span className="noselect post-code-highlight">"</span>
+            <Moment format="DD-MM-YYYY" children={postData?.date} />
+            <span className="noselect post-code-highlight">"</span>
+          </span>
+          <br className="noselect" />
+          <span className="post-code-highlight noselect ind-lvl-1">{"],"}</span>
+          <br className="noselect" />
+
+          <span className="ind-lvl-1 noselect" style={{ color: "#404449" }}>
+            categories:
+            <span className="post-code-highlight noselect">{" ["}</span>
+          </span>
+          <br className="noselect" />
+          <span className="post-categories ">
+            {postData?.categories.map((category: any, index: number) => {
+              return (
+                <span key={index}>
+                  <Link
+                    to={`/categories/${category}`}
+                    className="post-category ind-lvl-2"
+                  >
+                    {category}
+                  </Link>
+                  {postData?.categories.length !== index + 1 ? (
+                    <span className="post-code-highlight noselect">
+                      , <br />
+                    </span>
+                  ) : null}
+                </span>
+              );
+            })}
+          </span>
+          <br className="noselect" />
+          <span className="post-code-highlight noselect ind-lvl-1">{"]"}</span>
+          <br className="noselect" />
+          <span className="post-code-highlight noselect">{"}"}</span>
+        </div>
+
+        <ReactMarkdown
+          children={postData?.content as string}
+          escapeHtml={false}
+          renderers={renderers}
+          transformImageUri={(uri: string) => {
+            return uri.startsWith("http")
+              ? uri
+              : `http://localhost:3000/images/${uri}`;
+          }}
+        />
+      </div>
+    </>
   );
 };

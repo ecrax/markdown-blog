@@ -2,7 +2,8 @@
 title: Mr. Robot CTF - TryHackMe
 date: 2020/07/09
 categories:
-  - [pentesting, writeups]
+  - pentesting
+  - writeups
 ---
 
 Hey there! Today I am going to walk you through the Mr. Robot machine. I used the one on [TryHackMe](https://tryhackme.com/room/mrrobot), but it is available on [Vulnhub](https://www.vulnhub.com/entry/mr-robot-1,151/) as well.

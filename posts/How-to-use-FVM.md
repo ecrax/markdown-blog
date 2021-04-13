@@ -2,7 +2,8 @@
 title: How to use FVM
 date: 2020/10/26
 categories:
-  - [flutter, tools]
+  - flutter
+  - tools
 ---
 
 Hello everyone and welcome back to another video. Today we will be having a look at Flutter Version Management. If you want to follow along more slowly have a look at the writeup of this video on my blog, I will have it linked in the video description. And now, let's get right to it.
